@@ -3,33 +3,25 @@ class Solution {
     // 問題の前提として、 numberList の要素数は１以上のため、
     // 0の場合は例外をスローする。
     if (numberList.length == 0) {
-      Exception();
+      throw Exception();
     }
 
-    final sortedNumberList = _sortIntList(numberList);
+    numberList.sort();
 
-    for (var i = 0; i < sortedNumberList.length; i++) {
+    for (var i = 0; i < numberList.length; i++) {
       // 最後の要素の場合、 false を返す。
-      if (i == sortedNumberList.length - 1) {
+      if (i == numberList.length - 1) {
         return false;
       }
 
       // 現在の index の値と、次の index の値を比較する。
-      if (sortedNumberList[i] == sortedNumberList[i + 1]) {
+      if (numberList[i] == numberList[i + 1]) {
         return true;
       }
     }
 
     // ここまでたどり着くことはない想定のため、例外をスローする。
     throw Exception();
-  }
-
-  /// [numberList] を昇順に並び替えた List を返す。
-  List<int> _sortIntList(List<int> numberList) {
-    final targetList = numberList;
-    targetList.sort();
-
-    return targetList;
   }
 }
 
